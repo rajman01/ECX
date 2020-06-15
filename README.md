@@ -1,2 +1,2 @@
 # day1
-https://prayer-for-deployments.herokuapp.com/
+https://ecx-day2.herokuapp.com/
