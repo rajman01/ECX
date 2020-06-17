@@ -83,6 +83,8 @@ def popopulate():
 @app.route('/login',methods=['GET','POST'])
 def login():
     if request.method == 'GET':
+        if 'user_id' in session:
+                return redirect(url_for('status'))
         return render_template('login.html')
     else:
         username = request.form.get('username')
