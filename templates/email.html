@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Send an email</h1>
+        <form action="{{url_for('email')}}" method="post">
+            {% with messages = get_flashed_messages(with_categories=true)%}
+        {% if messages %}
+        {% for category, message in messages %}
+        <div class="alert alert-{{ category }}">
+            {{ message }}
+        </div>
+        {%endfor%}
+        {% endif %}
+        {% endwith %}
+  <div class="form-group">
+    <label for="exampleInputEmail1">To</label>
+    <input type="email" class="form-control" name="to" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Subject</label>
+    <input type="text" class="form-control" name="subject" id="exampleInputPassword1" required>
+  </div>
+             <div class="form-group">
+    <label for="exampleFormControlTextarea1">Body</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" name="body" rows="3" required></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary">Send</button>
+</form>
+    </div>
+</body>
+</html>
