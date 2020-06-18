@@ -26,7 +26,7 @@ def email():
         message = 'Subject: {}\n\n{}'.format(subject,body)
         server = smtplib.SMTP('smtp.gmail.com', 587)
         server.starttls()
-        server.login('alameenraji31@gmail.com','8034023989')
+        server.login('alameenraji31@gmail.com',os.environ.get('EMAIL_PASSWORD'))
         server.sendmail('alameenraji31@gmail.com', to, message)
         server.quit()
         flash(f'Message sent successfully', 'success')
